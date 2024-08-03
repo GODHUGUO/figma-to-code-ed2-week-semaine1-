@@ -274,7 +274,7 @@ export default {
       height: 450px;
       width: 320px;
       border-radius: 160px;
-      margin-left: 280px;
+       margin-left: 280px;
     }
   }
 }
@@ -495,7 +495,7 @@ border-radius: 15px;
         .top{
           height: 400px;
           width: 270px;
-          left:0px;
+        
         }
       }
       .abs{
@@ -558,12 +558,7 @@ gap: 10PX;
   position: absolute;
   
 }
-.top{
 
-  height: 400px;
-  width: 270px;
-
-}
 
 
 .chaqel{
@@ -606,9 +601,15 @@ justify-items: center;
 }
 
 .br{
-display: flex;
-flex-direction: column;
 
+
+
+
+
+
+.top{
+  margin-top: 20px;
+}
 }
 
 

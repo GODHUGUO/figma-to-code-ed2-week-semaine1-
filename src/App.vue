@@ -20,6 +20,7 @@
 <script>
 
 
+
 export default {
   name: 'App',
   components: {
@@ -33,7 +34,7 @@ export default {
   font-family: 'raleway';
 
 
-overflow-x: hidden;
+ overflow-x: hidden; 
 
 
 

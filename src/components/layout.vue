@@ -7,9 +7,9 @@
           <img src="@/assets/images/Group.png" alt="" srcset="" />
         </div>
 
-<div class="ip"     v-show="!mobile"      >
+<div class="ip"     v-show="!mobile" >
         <div class="menuelement">
-          <ul    class="navigation"   >
+          <ul    class="navigation">
             <li><a href="#">Home</a></li>
             <li><a href="#">Top sales</a></li>
             <li><a href="#">Collections</a></li>
@@ -24,20 +24,29 @@
         </div>
    </div>
 
-      <div     v-show="mobile"   
-      
-       @click="toggleMobileNav"
-      
-      class="icone">
-          <img src="@/assets/images/Frame 136.png" alt="">
-          </div>
+    <button  v-show="mobile"       class="icone" v-if="isMenuOpen===false" @click.prevent="openMenu">     
+
+        <img src="@/assets/images/Frame 136.png" alt="">
+
+      </button>     
+
+
+           <button  class="iconel" v-if="isMenuOpen===true" @click.prevent="closeMenu" >       
+       
+     
+          <img src="@/assets/images/Frame 135.png" alt="">
+        </button>   
+
+
+
+          
        
       </div>
     </header>
   
     <transition name="mobile-nav">
          
-      <div    v-show="mobilenavigation"  class="dropdom">
+      <div    v-if="isMenuOpen===true"  class="dropdom">
       
          <div class="menuelemntmobile"  >
         <ul   class="navigati"   >
@@ -118,8 +127,16 @@ setup(){
   const mobilenavigation = ref(false);
    
    const windowWidth = ref(null);
+   const isMenuOpen = ref(false);
+   const  openMenu=()=>{
+    isMenuOpen.value=true;
+   };
 
+   const closeMenu=()=>{
+    isMenuOpen.value=false;
+   };
 
+   
 
 
    onMounted(() => {
@@ -165,7 +182,9 @@ setup(){
   return{
   mobile,
   mobilenavigation,
-
+openMenu,
+isMenuOpen,
+closeMenu,
     toggleMobileNav,
    checkscreen,
 }
@@ -191,6 +210,13 @@ setup(){
   font-style: regular;
 }
 
+
+.entete{
+  button{
+    border:none;
+    background-color: transparent;
+  }
+}
 header{
   position: fixed;
   top:0;
@@ -417,10 +443,12 @@ li{
 
   z-index: 20;
   // align-self: flex-end;
- margin-left: 90%;
+ margin-left: 86%;
  position: absolute;
 }
-
+.iconel{
+  margin-left: 40%;
+}
 
 // -------------------@media------------------------------
 
